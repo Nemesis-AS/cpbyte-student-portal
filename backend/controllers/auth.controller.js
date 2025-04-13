@@ -48,6 +48,7 @@ export const register = asyncHandler(async (req, res) => {
     return password;
   };
   const randomPassword = generateRandomPassword();
+  console.log(randomPassword)
   const hashedPassword = bcrypt.hashSync(randomPassword, 10);
 
   const user = await prisma.user.create({

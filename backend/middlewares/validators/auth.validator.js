@@ -64,7 +64,7 @@ export const validateRegisterRequest = asyncHandler(async (req, res, next) => {
     role: {
       optional: true,
       isIn: {
-        options: [["ADMIN", "USER", "COORDINATOR"]],
+        options: [["ADMIN", "USER", "COORDINATOR" , "LEAD"]],
         errorMessage:
           "Role must be either 'ADMIN' or 'USER' or a 'COORDINATOR'",
       },

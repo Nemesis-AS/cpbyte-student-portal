@@ -5,7 +5,7 @@ import cloudinary from '../config/cloudinary.js';
 
 export const editUserProfile = asyncHandler(async (req, res) => {
     const { libId, data } = req.body;
-    const { name, email, role, year, dsaMentor, devMentor, domain_dev, domain_dsa, library_id } = data;
+    const { name, email, role, year, mentor_dsa, mentor_dev, domain_dev, domain_dsa, library_id } = data;
 
     if(!libId || !email || !name || !role || !year || !library_id || !domain_dev || !domain_dsa) {
         throw new ResponseError('Please provide all required fields', 400);
@@ -18,8 +18,8 @@ export const editUserProfile = asyncHandler(async (req, res) => {
             email,
             role,
             year,
-            dsaMentor,
-            devMentor,
+            mentor_dsa,
+            mentor_dev,
             domain_dev,
             domain_dsa,
             library_id
@@ -66,3 +66,60 @@ export const deleteUser = asyncHandler(async (req, res) => {
         message: 'User deleted successfully'
     });
 });
+export const getAllUsers = asyncHandler(async (req, res) => {
+    const users = await prisma.user.findMany({
+      where: {
+        role: "USER",
+      },
+    });
+  
+    if (!users || users.length === 0) {
+      throw new ResponseError("No users found with role USER", 404);
+    }
+  
+    res.status(200).json({
+      success: true,
+      message: "Users with role USER fetched successfully",
+      data: users,
+    });
+  });
+
+  
+  export const getAllCoordinators = asyncHandler(async (req, res) => {
+    const users = await prisma.user.findMany({
+      where: {
+        role: "COORDINATOR",
+      },
+    });
+  
+    if (!users || users.length === 0) {
+      throw new ResponseError("No users found with role USER", 404);
+    }
+  
+    res.status(200).json({
+      success: true,
+      message: "Users with role COORDINATOR fetched successfully",
+      data: users,
+    });
+  });
+  
+
+  export const getAllLeads = asyncHandler(async (req, res) => {
+    const users = await prisma.user.findMany({
+      where: {
+        role: "LEAD",
+      },
+    });
+  
+    if (!users || users.length === 0) {
+      throw new ResponseError("No users found with role USER", 404);
+    }
+  
+    res.status(200).json({
+      success: true,
+      message: "Users with role USER fetched successfully",
+      data: users,
+    });
+  });
+  
+  
