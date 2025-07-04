@@ -1,0 +1,164 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String       @id @default(uuid())
+  name        String
+  library_id  String       @unique
+  email       String       @unique
+  avatar      String?
+  role        Role         @default(USER)
+  domain_dev  DevDomain
+  domain_dsa  DSADomain
+  dsaAttendance  Int       @default(0)
+  devAttendance  Int       @default(0)
+  mentor_dev  String?
+  mentor_dsa  String?
+  year        Int          @default(1)
+  password    String
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  attendances Attendance[]
+  tracker     TrackerDashboard?
+}
+
+model TrackerDashboard {
+  id        String   @id @default(uuid())
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  past5     Int[] 
+  leetcode  Leetcode?
+  github    GitHub?
+  projects  Projects[]
+  rank      Int      @default(0)
+  skills    String[] @default([])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Leetcode{
+  id                 String   @id @default(uuid())
+  trackerId          String   @unique
+  tracker            TrackerDashboard @relation(fields: [trackerId], references: [id], onDelete: Cascade)
+  url                String
+  username           String
+  solvedProblems     Int     @default(0)
+  easy               Int     @default(0)
+  medium             Int     @default(0)
+  hard               Int     @default(0)
+  calendar           String   @default("")
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model GitHub {
+  id              String   @id @default(uuid())
+  trackerId       String   @unique
+  tracker         TrackerDashboard @relation(fields: [trackerId], references: [id], onDelete: Cascade)
+  url             String
+  username        String
+  contributions   Int   @default(0)
+  prs             Int   @default(0)
+  repos           Int   @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Projects{
+  id          String   @id @default(uuid())
+  coverImage  String
+  projectName String
+  githubUrl   String
+  description String
+  websiteUrl  String?
+  trackerId   String
+  tracker     TrackerDashboard @relation(fields: [trackerId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Attendance {
+  id        String           @id @default(uuid())
+  userId    String
+  user      User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  date      DateTime
+  status    AttendanceStatus
+  subject   Subject
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+}
+
+model Schedule {
+  id        String   @id @default(uuid())
+  date      DateTime @unique
+  createdAt DateTime @default(now())
+  updateAt  DateTime @updatedAt
+  events    Event[]
+}
+
+model Event {
+  id         String   @id @default(uuid())
+  category   Category
+  title      String   
+  discription String?
+  scheduleId String
+  schedule   Schedule @relation(fields: [scheduleId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model AttendanceLog {
+  id        String   @id @default(uuid())
+  date      DateTime
+  domain    String  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Role {
+  ADMIN
+  COORDINATOR
+  USER
+  LEAD
+}
+
+enum DevDomain {
+  ANDROID
+  ARVR
+  ML
+  WEBDEV
+  UIUX
+}
+
+enum Subject {
+  DSA
+  DEV
+}
+
+enum DSADomain {
+  CPP
+  JAVA
+}
+
+enum AttendanceStatus {
+  PRESENT
+  ABSENT_WITHOUT_REASON
+  ABSENT_WITH_REASON
+}
+
+enum Category {
+  General
+  Class
+}

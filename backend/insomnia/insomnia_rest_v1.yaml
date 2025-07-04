@@ -1,0 +1,96 @@
+type: collection.insomnia.rest/5.0
+name: CPByte Student Portal
+meta:
+  id: wrk_8ea1707b2aa049a3afd84a20c7650342
+  created: 1742972482035
+  modified: 1742972482035
+collection:
+  - name: Auth
+    meta:
+      id: fld_a0148f94aa1a47d680bd73d1872edfd8
+      created: 1742972529861
+      modified: 1742972529861
+      sortKey: -1742972529861
+    children:
+      - url: "{{ _.BASE_URL }}{{ _.API_PATH }}/auth/register"
+        name: Register User
+        meta:
+          id: req_04d385f5e2e2431aa4097c957b1687b2
+          created: 1742972577578
+          modified: 1742973810011
+          isPrivate: false
+          description: |-
+            ### Access
+
+            Admin only route
+          sortKey: -1742972577578
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "name": "Akshat Shukla",
+              "library_id": "LIB12345",
+              "email": "me2@example.com",
+              "role": "ADMIN",
+              "domain_dev": "WEBDEV",
+              "domain_dsa": "JAVA"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BASE_URL }}{{ _.API_PATH }}/auth/login"
+        name: Login User
+        meta:
+          id: req_a089e15dfabf43ada290d5335a71cc01
+          created: 1742973279677
+          modified: 1742973816007
+          isPrivate: false
+          sortKey: -1742973279677
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"library_id": "LIB12345",
+            	"password": "TestPass123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_7352cc0efa192a5e0813d2a54d14a40fbbed6ea5
+    created: 1742972482044
+    modified: 1742972482044
+environments:
+  name: Base Environment
+  meta:
+    id: env_7352cc0efa192a5e0813d2a54d14a40fbbed6ea5
+    created: 1742972482040
+    modified: 1742972570513
+    isPrivate: false
+  data:
+    BASE_URL: http://localhost:8080
+    API_PATH: /api/v1
