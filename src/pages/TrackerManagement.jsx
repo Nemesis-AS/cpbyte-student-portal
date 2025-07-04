@@ -11,7 +11,7 @@ function TrackerManagement() {
   const vantaRef = useRef(null);
     const vantaEffect = useRef(null);
   
-    useEffect(() => {
+    useEffect(() => { 
       let isMounted = true;
   
       const loadVanta = async () => {
