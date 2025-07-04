@@ -6,7 +6,7 @@ import toast from "react-hot-toast"
 import { updateAvatar, updatePass } from '../redux/slices/settingsSlice';
 import * as THREE from 'three';
 
-export default function UserSettings() {
+export default function UserSettings() { 
 
   const user=useSelector(state=>state.dashboard.data)
   const dispatch = useDispatch();
