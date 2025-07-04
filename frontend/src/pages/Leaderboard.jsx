@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import trophy from "../../public/trophy.png";
-import noimage from "../../public/noImage.webp";
+import trophy from "../assets/trophy.png";
+import noimage from "../assets/noImage.webp";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAll } from "../redux/slices/Leaderboard";

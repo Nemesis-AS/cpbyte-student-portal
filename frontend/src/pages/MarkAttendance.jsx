@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import noimage from "../../public/noImage.webp";
+import noimage from "../assets/noImage.webp";
 import { useDispatch, useSelector } from "react-redux";
 import { markAttendance } from "../redux/slices/attendanceSlice";
 import MarkAttendanceProtector from "../componenets/MarkAttendanceProtector";

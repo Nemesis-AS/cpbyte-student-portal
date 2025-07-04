@@ -3,7 +3,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 import { LuPenLine } from "react-icons/lu";
 import { Link } from "react-router-dom";
-import git from "../../public/github.webp";
+import git from "../assets/github.webp";
 import { Star } from "lucide-react";
 import { IoStatsChartSharp } from "react-icons/io5";
 import { useSelector } from "react-redux";
