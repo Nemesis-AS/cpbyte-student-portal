@@ -11,7 +11,7 @@ export default function UserSettings() {
   const user=useSelector(state=>state.dashboard.data)
   const dispatch = useDispatch();
   const vantaRef = useRef(null);
-  const vantaEffect = useRef(null);
+  const vantaEffect = useRef(null); 
 
   useEffect(() => {
     let isMounted = true;
