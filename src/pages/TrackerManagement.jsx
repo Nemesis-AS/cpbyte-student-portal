@@ -21,7 +21,7 @@ function TrackerManagement() {
           vantaEffect.current = VANTA.default({
             el: vantaRef.current,
             THREE: THREE,
-            mouseControls: true,
+            mouseControls: false,
             touchControls: true,
             gyroControls: false,
             minHeight: 200.00,
