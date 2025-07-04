@@ -1,3 +1,17 @@
+<<<<<<< HEAD
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+=======
 # CPByte Student Portal
 
 This is the internal management portal for CPByte club @ KIET 
@@ -79,3 +93,4 @@ The backend directory contains a folder called `insomnia/`. This directory conta
 **Note:** The collection may be used with other HTTP REST clients as well, such as Postman, Hoppscotch or Thunder Client. But it is untested on those clients.
 
 
+>>>>>>> a432eca6d081b0103d687d970830ba2035475efc
