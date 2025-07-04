@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast"
-import { removeProject } from "../redux/slices/TrackerSlice";
+import { removeProject } from "../redux/slices/TrackerSlice"; 
 
 function RemoveProject() {
     
@@ -32,9 +32,9 @@ function RemoveProject() {
   useEffect(()=>{
     setProjects(data.projects)
   },[data])
-
+  
 return (
-    <div className="flex flex-col items-center min-h-screen bg-gray-900 text-white">
+    <div className="flex flex-col items-center min-h-screen   text-white">
         <div className="p-6 w-full max-w-4xl">
             <h3 className="text-3xl font-bold text-gray-900 dark:text-white">
                 Remove Project
@@ -46,7 +46,7 @@ return (
                 {projects?.map((project) => (
                     <li
                         key={project.id}
-                        className="flex justify-between items-center bg-gray-800 p-4 rounded-md shadow-sm"
+                        className="flex justify-between items-center  p-4 rounded-md shadow-sm"
                     >
                         <span className="text-gray-300">{project.projectName}</span>
                         <button

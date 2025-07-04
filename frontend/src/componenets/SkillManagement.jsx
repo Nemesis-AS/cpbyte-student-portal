@@ -1,7 +1,7 @@
 import { LucidePenLine } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { FaMinusCircle } from "react-icons/fa";
+import { FaMinusCircle } from "react-icons/fa"; 
 import { useDispatch, useSelector } from "react-redux";
 import { addSkill, removeSkill } from "../redux/slices/TrackerSlice";
 
@@ -60,7 +60,7 @@ function SkillManagement() {
       <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
         Update your skill set to showcase your expertise.
       </p>
-      <div className="rounded-lg p-6 w-full flex flex-col space-y-6 bg-gray-800">
+      <div className="rounded-lg p-6 w-full flex flex-col space-y-6 border border-gray-800 backdrop-blur-2xl shadow-2xl">
         <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-4 sm:space-y-0">
           <LucidePenLine className="text-2xl text-blue-500" />
           <label
@@ -74,8 +74,10 @@ function SkillManagement() {
             id="skill"
             value={newSkill}
             placeholder="Enter a skill..."
-            className="flex h-12 w-full sm:w-1/3 rounded-lg border border-gray-700 bg-gray-800 px-4 py-2 text-sm text-gray-300 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600"
+            className="flex h-12 w-full sm:w-1/3 rounded-lg disabled:cursor-not-allowed disabled:opacity-50  bg-white  border border-gray-700  px-4 py-2 text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-500   dark:border-gray-800 dark:bg-gray-900 dark:text-white dark:placeholder:text-gray-400  "
             onChange={(e) => setNewSkill(e.target.value)}
+
+    
           />
           <button
             onClick={() => addSkills()}

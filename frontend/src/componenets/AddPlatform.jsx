@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
 import { SiCodechef, SiLeetcode, SiGeeksforgeeks, SiGithub } from "react-icons/si";
 import { FaHackerrank } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import { addGitHub, addLeetcode } from "../redux/slices/TrackerSlice";
+
 
 function AddPlatforms() {
   const data = useSelector((state)=>state.tracker.data)
@@ -18,6 +19,7 @@ function AddPlatforms() {
     data.leetcode.username
   );
 
+  
   useEffect(()=>{
     setGithub(data.github.username)
     setLeetcodeUsername(data.leetcode.username)
@@ -56,14 +58,14 @@ function AddPlatforms() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-6 max-w-3xl">
-      <h3 className="text-3xl font-bold text-gray-900 dark:text-white">
+    <div  className="container mx-auto px-4 py-6 max-w-3xl">
+      <h3 className="text-3xl font-bold  text-gray-900 dark:text-white">
         Manage Platforms
       </h3>
       <p className={`text-sm text-gray-500 dark:text-gray-400 mb-8`}>
         Add your Coding Platforms. You'll need to verify them.
       </p>
-      <div className="space-y-4 flex flex-col rounded-lg p-6 bg-gray-100 dark:bg-gray-800 mb-7">
+      <div className="space-y-4 flex flex-col rounded-lg p-6 border border-gray-800 shadow-2xl backdrop-blur-xl mb-7">
         <div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:items-center sm:space-x-4">
           <div className="flex items-center space-x-2">
             <SiLeetcode className="text-white" size={"1.5rem"} />
