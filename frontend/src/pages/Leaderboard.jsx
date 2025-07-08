@@ -3,8 +3,8 @@ import trophy from "../../public/trophy.png";
 import noimage from "../../public/noImage.webp";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getAll } from "../redux/slices/Leaderboard";
-import SimpleSkeleton from "../componenets/SimpleSkeleton";
+import { getAll } from "../redux/slices/Leaderboard"; 
+import SimpleSkeleton from "../componenets/SimpleSkeleton"; 
 
 const Leaderboard = () => {
   const dispatch = useDispatch();
@@ -27,9 +27,9 @@ const Leaderboard = () => {
         <h1 className="text-4xl font-extrabold my-4 text-center text-white drop-shadow-lg">
           Leaderboard🚀
         </h1>
-        {loading ? (
-  <SimpleSkeleton />
-) : ( <div className="w-full p-4 lg:p-12 pt-4">
+        {loading ? ( 
+  <SimpleSkeleton /> 
+) : ( <div className="w-full p-4 lg:p-12 pt-4"> 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 w-full">
             {data?.map(
               (item, index) =>
@@ -166,7 +166,7 @@ const Leaderboard = () => {
               </tbody>
             </table>
           </div>
-        </div>)}
+        </div>)} 
        
       </div>
     </div>
