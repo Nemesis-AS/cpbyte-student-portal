@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BookOpen, Lock, LogIn, Eye, EyeOff } from 'lucide-react';
-import logo from '../assets/CPBYTE_LOGO.jpg'
+import logo from '../assets/CPBYTE_LOGO.jpg';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../redux/slices/authSlice';
 import toast from 'react-hot-toast';
