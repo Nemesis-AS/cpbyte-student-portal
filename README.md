@@ -1,6 +1,6 @@
 # CPByte Student Portal
 
-This is the internal management portal for CPByte club @ KIET
+This is the internal management portal for CPByte club @ KIET 
 
 ## Getting Started
 

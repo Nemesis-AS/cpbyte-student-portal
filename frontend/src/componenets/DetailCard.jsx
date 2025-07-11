@@ -4,6 +4,7 @@ import { DiCodeigniter } from "react-icons/di";
 import { FaChalkboardTeacher } from "react-icons/fa";
 import { PiChalkboardTeacherBold } from "react-icons/pi";
 import noimage from '../assets/noImage.webp';
+import noimage from "../assets/noImage.webp"
 import { useSelector } from 'react-redux';
 
 function DetailCard() {

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import logo from '../assets/CPBYTE_LOGO.jpg';
+import logo from "../assets/CPBYTE_LOGO.jpg";
+
 import { RiHome4Line } from "react-icons/ri";
 import { GrSchedulePlay } from "react-icons/gr";
-import { TbHelpOctagon } from "react-icons/tb";
 import { IoMdSettings } from "react-icons/io";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AiOutlinePieChart } from "react-icons/ai";
@@ -161,13 +162,6 @@ function Navbar() {
               >
                 <Wrench size={isMobile ? 18 : 20} />
                 <h2>Manage Tracker</h2>
-              </Link>
-              <Link
-                to={"Help"}
-                className={`flex items-center gap-2 hover:bg-[#212327] ${getActiveClass("/Help")} hover:text-[#0ec1e7] duration-200 w-full p-2 pl-4 md:pl-6 rounded-md cursor-pointer text-sm md:text-base`}
-              >
-                <TbHelpOctagon size={isMobile ? 18 : 20} />
-                <h2>Help Center</h2>
               </Link>
               <button
                 onClick={logout}
